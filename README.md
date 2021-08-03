@@ -1,4 +1,4 @@
-# reaction-trainer
+# Reaction-Trainer
 
 ## Project setup
 ```
