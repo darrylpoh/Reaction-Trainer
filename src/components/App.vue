@@ -2,15 +2,16 @@
   <h1>Reaction Trainer</h1>
   <button @click="start" :disabled="isTraining">play</button>
   <box v-if="isTraining" :delay="delay" @end="endGame" />
-  <p v-if="showResults">Reaction time: {{ score }} ms</p>
+  <Results v-if="showResults" :score="score"/>
 </template>
 
 <script>
 import box from './box.vue'
+import Results from './Results.vue'
 
 export default {
   name: 'App',
-  components: { box },
+  components: { box, Results },
   data() {
     return {
       isTraining: false,
@@ -21,7 +22,6 @@ export default {
   },
   methods: {
     start() {
-      // set time amount (ms)
       this.delay = 2000 + Math.random() * 5000
       this.isTraining = true
       this.showResults = false
