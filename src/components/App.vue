@@ -1,12 +1,16 @@
 <template>
   <h1>Reaction Trainer</h1>
-  <button @click="start">begin</button>
+  <button @click="start" :disabled="isTraining">begin</button>
+  <space v-if="isTraining" :delay="delay"/>
 </template>
 
 <script>
+import Space from './Space.vue'
+
+
 export default {
   name: 'App',
-  components: { },
+  components: { Space },
   data() {
     return {
       isTraining: false,
@@ -17,7 +21,6 @@ export default {
     start() {
       this.delay = 1000 + Math.random() * 5000
       this.isTraining = true
-      console.log(this.delay)
     }
   }
 }
